@@ -6,12 +6,27 @@
 
 body {
     display: flex;
+    flex-direction: column;
     /* 伸缩元素向每行中点排列。每行第一个元素到行首的距离将与每行最后一个元素到行尾的距离相同。 */
     justify-content: center;
     align-items: center;
     /* vw=view width vh=view height */
     min-height: 100vh;
     background: #60a9a6;
+}
+
+.date {
+    width: 80%;
+    height: 20px;
+    position: absolute;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.today {
+    color: #f5fec0;
 }
 
 .clock {
@@ -103,4 +118,20 @@ body {
     background: #848484;
     z-index: 12;
     border-radius: 6px 6px 0 0
+}
+
+.sentence {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    word-wrap: break-word;
+    word-break: normal;
+    overflow: auto;
+    bottom: 20px;
+    height: 100px;
+    width: 80%;
+}
+
+.sen {
+    color: #f5fec0;
 }

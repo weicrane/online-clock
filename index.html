@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <div class="date">
+        <p class="today" id="today"></p>
+    </div>
     <div class="clock">
         <div class="hour">
             <div class="hr" id="hr"></div>
@@ -22,7 +25,20 @@
         </div>
 
     </div>
+    <div class="sentence">
+        <p class="sen" id="sen">一寸光阴一寸金</p>
+    </div>
     <script>
+        setInterval(() => {
+            let today = new Date();
+            let year = today.getFullYear();
+            let month = today.getMonth();
+            let day = today.getDay();
+            var weekday = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+            let date = year + "年" + month + "月" + day + "日";
+            document.getElementById("today").innerHTML = date + "  " + weekday[today.getDay()];
+        });
+
         const degs = 6;
         const hr = document.querySelector('#hr');
         const min = document.querySelector('#min');
