@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>online-clock</title>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="minute">
+            <div class="min" id="min"></div>
+        </div>
+        <div class="second">
+            <div class="sec" id="sec"></div>
+        </div>
+
+    </div>
+    <script>
+        const degs = 6;
+        const hr = document.querySelector('#hr');
+        const min = document.querySelector('#min');
+        const sec = document.querySelector('#sec');
+        // 重复调用
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30; //时针度数,每小时转动30度
+            let mm = day.getMinutes() * degs; //分针度数,每分钟转动6度
+            let ss = day.getSeconds() * degs; //秒针度数,每分钟转动6度
+            //60分钟时针转动30度,故每2分钟对应时针转动一度,mm=分钟*6,故需要加上mm/12
+            hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+            min.style.transform = `rotateZ(${mm}deg)`;
+            sec.style.transform = `rotateZ(${ss}deg)`;
+        })
+    </script>
+</body>
+
+</html>
